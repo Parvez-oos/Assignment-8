@@ -4,7 +4,6 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
 
-
 import { FiMenu, FiX, FiLogOut } from "react-icons/fi";
 import { MdOutlineDiamond } from "react-icons/md";
 
@@ -19,22 +18,19 @@ export default function Navbar() {
     router.push("/login");
   };
 
+  // ✅ FIX: "My Profile" is now permanently in the navLinks array!
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "All Tiles", path: "/all-tiles" },
+    { name: "My Profile", path: "/my-profile" },
   ];
 
-  if (session) {
-    navLinks.push({ name: "My Profile", path: "/my-profile" });
-  }
-
   return (
-    <nav className="sticky top-0 z-100 w-full bg-white border-b border-gray-100 shadow-sm transition-all duration-300">
+    <nav suppressHydrationWarning className="sticky top-0 z-100 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
       <div className="w-full mx-auto px-6 md:px-16 lg:px-24 max-w-480">
         <div className="flex justify-between items-center h-24">
           
           {/* ================= LEFT: LOGO ================= */}
-
           <div className="shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 bg-linear-to-br from-[#233249] to-blue-800 text-white flex items-center justify-center rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
@@ -47,7 +43,6 @@ export default function Navbar() {
           </div>
 
           {/* ================= CENTRE: LINKS ================= */}
-
           <div className="hidden md:flex items-center justify-center space-x-12">
             {navLinks.map((link) => {
               const isActive = pathname === link.path;
@@ -69,12 +64,10 @@ export default function Navbar() {
           </div>
 
           {/* ================= RIGHT: AUTH BUTTONS ================= */}
-
           <div className="hidden md:flex items-center space-x-4">
              {isPending ? (
                 <span className="loading loading-spinner text-blue-600"></span>
              ) : !session ? (
-                // Logged Out: Show Login Button
                 <Link 
                   href="/login" 
                   className="bg-blue-600 text-white hover:bg-blue-700 px-10 py-3 text-sm font-bold tracking-widest uppercase rounded-sm transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center"
@@ -82,7 +75,6 @@ export default function Navbar() {
                   Login
                 </Link>
              ) : (
-                
                 <button 
                   onClick={handleLogout} 
                   className="bg-red-50 text-red-600 border border-red-100 hover:bg-red-600 hover:text-white px-8 py-3 text-sm font-bold tracking-widest uppercase rounded-sm transition-all duration-300 shadow-sm flex items-center justify-center gap-2"
@@ -93,7 +85,6 @@ export default function Navbar() {
           </div>
 
           {/* ================= MOBILE MENU BUTTON ================= */}
-
           <div className="md:hidden flex items-center">
              <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -107,8 +98,7 @@ export default function Navbar() {
       </div>
 
       {/* ================= MOBILE DROPDOWN MENU ================= */}
-
-      <div className={`md:hidden absolute w-full bg-white border-b border-gray-200 shadow-xl transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+      <div className={`md:hidden absolute w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-xl transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
         <div className="px-6 py-6 space-y-6 flex flex-col">
           {navLinks.map((link) => (
             <Link 
