@@ -61,7 +61,7 @@ export default function Home() {
       setHasMounted(true);
     });
 
-    fetch("http://localhost:4000/tiles")
+    fetch("https://elegant-backend-edbc.onrender.com/tiles")
       .then((res) => res.json())
       .then((data: Tile[]) => {
         setFeatured(data.slice(0, 4)); 
