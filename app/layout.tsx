@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="light" className="bg-white text-gray-900" suppressHydrationWarning>
       <body className={`${inter.className} bg-white text-gray-900`} suppressHydrationWarning>
-        
         <ToasterProvider />
         
         
