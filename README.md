@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+💎 Elegant Surfaces | Premium Tile Gallery
 
-## Getting Started
+Welcome to Elegant Surfaces, a modern, luxurious Single Page Application (SPA) designed to showcase premium architectural tiles and ceramics.
 
-First, run the development server:
+🔗 Live URLs
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Frontend (Vercel): https://assignment-8-5ajj.vercel.app
+Backend API (JSON Server): https://elegant-backend-edbc.onrender.com
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🎯 Project Purpose
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The purpose of this project is to provide users with a seamless, highly responsive browsing experience to discover high-end interior surfaces. It features a secure authentication system that gates premium content ("View Details"), a dynamic gallery with live search filtering, and a premium user dashboard for managing profile information. As a true SPA, it ensures flawless, zero-refresh routing without throwing errors on page reloads.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✨ Key Features
 
-## Learn More
+Secure Authentication: Full email/password registration and Google Social Login utilizing BetterAuth and MongoDB.
+2. Protected Routes: Private pages (like the Profile Dashboard and Tile Details) are strictly protected using Next.js Middleware.
+3. Content Gating: Unauthenticated users are gracefully redirected to the login page when attempting to view premium tile details.
+4. Dynamic Gallery & Search: Fetches 36 unique tile collections from a live JSON server, featuring instant title-search filtering.
+5. New Arrivals System: Custom URL parameters (`?filter=new`) dynamically sort and display the 12 newest additions to the catalog.
+6. Premium User Dashboard: A dedicated profile page allowing users to seamlessly update their display name and profile avatar URL.
+7. Fully Responsive Design: A flawless split-screen UI and glassmorphism navbar optimized for Mobile, Tablet, and Desktop screens.
 
-To learn more about Next.js, take a look at the following resources:
+📦 Technologies & NPM Packages Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Framework: `next` (Next.js 14/15 App Router)
+2. Authentication: `better-auth` (with Google OAuth)
+3. Database Adapter: `mongodb` 
+4. UI/Carousels: `swiper` (SwiperJS for premium touch-slider banners)
+5. Notifications: `react-hot-toast` (Client-side rendered for hydration safety) 
+6. Icons: `react-icons`
+7. Styling: `tailwindcss` & `daisyui`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
