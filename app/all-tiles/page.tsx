@@ -27,7 +27,7 @@ function GalleryContent() {
 
   useEffect(() => {
     
-    fetch("https://elegant-backend-edbc.onrender.com/tiles")
+    fetch("/api/tiles")
       .then((res) => res.json())
       .then((data: Tile[]) => { 
         

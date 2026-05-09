@@ -16,8 +16,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
+    <html lang="en" data-theme="light" className="bg-white text-gray-900" suppressHydrationWarning>
+      <body className={`${inter.className} bg-white text-gray-900`} suppressHydrationWarning>
         
         <ToasterProvider />
         
